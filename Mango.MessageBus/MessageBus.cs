@@ -6,11 +6,11 @@ namespace Mango.MessageBus
 {
     public class MessageBus : IMessageBus
     {
-        private string connectionString = "";
+        //private string connectionString = "";
 
         public async Task PublishMessage(object message, string topic_queue_Name)
         {
-            await using var client = new ServiceBusClient(connectionString);
+            await using var client = new ServiceBusClient("REPLACE");
 
             ServiceBusSender sender = client.CreateSender(topic_queue_Name);
 
